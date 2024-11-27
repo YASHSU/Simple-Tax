@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Simple Tax Calculator SK</h2>
+        <div class="form-group">
+            <label for="income">Income:</label>
+            <input type="number" id="income" placeholder="Enter your income">
+        </div>
+        <div class="form-group">
+            <label for="taxRate">Tax Rate (%):</label>
+            <input type="number" id="taxRate" placeholder="Enter tax rate">
+        </div>
+        <button onclick="calculateTax()">Calculate Tax</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateTax() {
+            const income = document.getElementById('income').value;
+            const taxRate = document.getElementById('taxRate').value;
+            if (income && taxRate) {
+                const tax = (income * taxRate) / 100;
+                document.getElementById('result').innerText = `Tax: ${tax.toFixed(2)} Rs`;
+            } else {
+                document.getElementById('result').innerText = 'Please enter both income and tax rate.';
+            }
+        }
+    </script>
+</body>
+</html>
